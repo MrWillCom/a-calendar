@@ -1,0 +1,65 @@
+:root {
+    --main-content-margin: 6vw;
+}
+
+.image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.front {
+    color: #fff;
+}
+
+.front .left {
+    position: absolute;
+    left: var(--main-content-margin);
+    bottom: var(--main-content-margin);
+    font-family: 'SF Pro Display';
+}
+
+.front .left .month {
+    margin: 0;
+    margin-bottom: 24px;
+    font-size: 36px;
+    line-height: 36px;
+    opacity: 0.8;
+}
+
+.front .left .date {
+    margin: 0;
+    font-size: 164px;
+    line-height: 120px;
+}
+
+.front .right {
+    position: absolute;
+    right: var(--main-content-margin);
+    bottom: var(--main-content-margin);
+    font-size: 20px;
+    line-height: 20px;
+    font-family: 'SF Pro Text';
+    color: rgba(255, 255, 255, 0.8);
+    transition: opacity .35s;
+}
+
+.front .right .photoBy {
+    margin: 0;
+}
+
+.front .right .author {
+    font-family: 'SF Pro Text Semibold';
+    color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+    .front .right {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
