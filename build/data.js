@@ -1,5 +1,6 @@
 const dateIdList = [
     "20210712",
+    "20210713",
 ]
 
 var data = [{
