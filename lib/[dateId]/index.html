@@ -1,16 +1,44 @@
 <Document>
     title: "<% month %> <% date %> - A Calendar"
     description: "A Calendar is a calendar with new photos everyday."
-    head: '<link rel="stylesheet" href="/css/styles.css">'
+    head: |
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
     body: |
         <div class="main">
             <img src="/photos/<% dateId %>.png" alt="Background photo by <% author %>" class="image" >
             <div class="front">
-                <div class="left">
+                <div class="top-right">
+                    <button class="more-btn" id="toggle-more-dialog">
+                        <i class="ri-more-fill"></i>
+                    </button>
+                    <div class="more-dialog" id="more-dialog">
+                        <h1>Share</h1>
+                        <p class="developing">This feature is working in progress...</p>
+                        <style>.developing{ text-align: center; color: #888 }</style>
+                        <!-- <button class="btn btn-primary" id="copy-link-btn">Copy Link</button> -->
+                    </div>
+                </div>
+                <div class="bottom-left">
                     <p class="month"><% month %></p>
                     <p class="date"><% date %></p>
                 </div>
-                <div class="right"><p class="photoBy">Photo by <span class="author"><% author %></span></p></div>
+                <div class="bottom-right"><p class="photoBy">Photo by <span class="author"><% author %></span></p></div>
             </div>
         </div>
+        <script>
+            var elements = {
+                "toggle-more-dialog":document.getElementById('toggle-more-dialog'),
+                "more-dialog": document.getElementById('more-dialog'),
+                "copy-link-btn": document.getElementById('copy-link-btn'),
+            }
+
+            elements["toggle-more-dialog"].addEventListener('click', () => {
+                elements["more-dialog"].classList.toggle('open')
+            })
+
+            elements["copy-link-btn"].addEventListener('click', () => {
+                copy(window.location.href)
+            })
+        </script>
 </Document>
