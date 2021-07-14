@@ -2,45 +2,35 @@ const readFile = require("./modules/readFile");
 const writeFile = require("./modules/writeFile");
 const copyFile = require("./modules/copyFile");
 const scanDirectory = require("./modules/scanDirectory");
+const build = require("./modules/build");
+const _p = require('./modules/parsePath')(1);
 
 const buildTasks = require("./data");
 
-const parsePath = (shortcut, prefix, suffix) => {
-    if (!suffix) { suffix = "index.html" }
-    shortcut = prefix + shortcut;
-    shortcut = shortcut + suffix;
-    return shortcut;
-}
+const buildAll = async () => {
+    for (const task of buildTasks) {
+        var code = await readFile(_p('@/lib/' + task.from + 'index.html', true), 'utf8')
+        const buildOptions = require(_p('@/lib/') + task.from + 'index.data.js')
+        const getData = buildOptions.getData
+        const data = getData ? getData(task.data) : {}
+        const options = buildOptions.options
+        code = await build(code, data, options ?? {})
+        await writeFile(_p('@/output/', true) + task.to + 'index.html', code)
 
-const build = async (task) => {
-    var sourceCode = await readFile(parsePath(task.from, './lib'), 'utf8')
-    const getData = require(parsePath(task.from, '../lib', 'index.data.js'))
-    const data = getData(task.data)
-    for (const key in data) {
-        const element = data[key];
-        const placeholder = `<% ${key} %>`;
-        while (sourceCode.search(placeholder) != -1) {
-            sourceCode = sourceCode.replace(`<% ${key} %>`, element);
-        }
+        console.log(`Built  ${'@' + task.to + 'index.html'}`)
     }
-    await writeFile(parsePath(task.to, './output'), sourceCode)
-
-    console.log(`Built  ${parsePath(task.to, '')}`)
-    return;
+    return
 }
 
 const copyPublicDir = () => {
-    scanDirectory('./public/').then(async (fileList) => {
+    scanDirectory(_p('@/public/', true)).then(async (fileList) => {
         for (const file of fileList) {
-            await copyFile(file, file.replace('./public/', './output/'))
+            await copyFile(file, file.replace(_p('@/public/', true), _p('@/output/', true)))
 
-            console.log(`Copied ${file.replace('./public', '')}`)
+            console.log(`Copied ${'@' + file.replace(_p('@/public', true), '')}`)
         }
     })
 }
 
-for (const task of buildTasks) {
-    build(task)
-}
-
+buildAll()
 copyPublicDir()

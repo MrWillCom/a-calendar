@@ -1,5 +1,8 @@
 {
     "scripts": {
         "build": "node ./build/main.js"
+    },
+    "dependencies": {
+        "js-yaml": "^4.1.0"
     }
 }
