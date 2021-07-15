@@ -40,6 +40,7 @@
 
 body {
     color: var(--text-color);
+    font-family: 'SF Pro Rounded';
 }
 
 .btn.btn-primary{
@@ -134,7 +135,7 @@ body {
     position: absolute;
     left: var(--main-content-margin);
     bottom: var(--main-content-margin);
-    font-family: 'SF Pro Display';
+    font-family: 'SF Pro';
     color: var(--hero-text-color);
 }
 
