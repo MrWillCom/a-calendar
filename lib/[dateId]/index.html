@@ -8,37 +8,36 @@
         <div class="main">
             <img src="/photos/<% dateId %>.png" alt="Background photo by <% author %>" class="image" >
             <div class="front">
-                <div class="top-right">
-                    <button class="more-btn" id="toggle-more-dialog">
-                        <i class="ri-more-fill"></i>
-                    </button>
-                    <div class="more-dialog" id="more-dialog">
-                        <h1>Share</h1>
-                        <p class="developing">This feature is working in progress...</p>
-                        <style>.developing{ text-align: center; color: #888; font-family: 'SF Compact'; }</style>
-                        <!-- <button class="btn btn-primary" id="copy-link-btn">Copy Link</button> -->
-                    </div>
-                </div>
                 <div class="bottom-left">
                     <p class="month"><% month %></p>
                     <p class="date"><% date %></p>
                 </div>
-                <div class="bottom-right"><p class="photoBy">Photo by <span class="author"><% author %></span></p></div>
+                <div class="bottom-right">
+                    <p class="photo-by">Photo by <span class="author"><% author %></span></p>
+                </div>
+                <button class="more-btn btn acrylic-round-btn"><i class="ri-more-line"></i></button>
+                <div class="more-panel">
+                    <button class="close-btn btn acrylic-round-btn"><i class="ri-close-line"></i></button>
+                    <p class="developing">This feature is working in progress...</p>
+                    <style>.developing{ margin: 64px 0; text-align: center; color: #888; font-family: 'SF Compact'; }</style>
+                </div>
             </div>
         </div>
         <script>
             var elements = {
-                "toggle-more-dialog":document.getElementById('toggle-more-dialog'),
-                "more-dialog": document.getElementById('more-dialog'),
-                "copy-link-btn": document.getElementById('copy-link-btn'),
+                ".front": document.getElementsByClassName("front")[0],
+                ".photo-by": document.getElementsByClassName("photo-by")[0],
+                ".more-btn": document.getElementsByClassName("more-btn")[0],
+                ".more-panel": document.getElementsByClassName("more-panel")[0],
+                ".more-panel>.close-btn": document.querySelector(".more-panel>.close-btn"),
             }
 
-            elements["toggle-more-dialog"].addEventListener('click', () => {
-                elements["more-dialog"].classList.toggle('open')
-            })
+            const toggleMorePanel = () => {
+                elements[".front"].classList.toggle("more-panel--open")
+            }
 
-            elements["copy-link-btn"].addEventListener('click', () => {
-                copy(window.location.href)
-            })
+            elements[".photo-by"].addEventListener("click", toggleMorePanel)
+            elements[".more-btn"].addEventListener("click", toggleMorePanel)
+            elements[".more-panel>.close-btn"].addEventListener("click", toggleMorePanel)
         </script>
 </Document>
