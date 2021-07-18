@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
     body: |
         <div class="main">
-            <img src="/photos/<% dateId %>.png" alt="Background photo by <% author %>" class="image" >
+            <img src="/photos/<% dateId %>.png" alt="Background photo by <% author %>" class="image">
             <div class="front">
                 <div class="bottom-left">
                     <p class="month"><% month %></p>
@@ -18,8 +18,73 @@
                 <button class="more-btn btn acrylic-round-btn"><i class="ri-more-line"></i></button>
                 <div class="more-panel">
                     <button class="close-btn btn acrylic-round-btn"><i class="ri-close-line"></i></button>
-                    <p class="developing">This feature is working in progress...</p>
-                    <style>.developing{ margin: 64px 0; text-align: center; color: #888; font-family: 'SF Compact'; }</style>
+                    <div class="section" section-number="1">
+                        <img src="/photos/<% dateId %>.png" class="image">
+                    </div>
+                    <div class="section" section-number="2">
+                        <p class="photo-by">Photo by <a href="<% authorUrl %>" class="author"><% author %></a></p>
+                    </div>
+                    <div class="separator developing">
+                        <style>
+                            .developing {
+                                margin-bottom: 12px;
+                            }
+                        </style>
+                    </div>
+                    <!-- <div class="separator"></div>
+                    <div class="section" section-number="3">
+                        <div class="action-blocks">
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="icon"><i class="ri-file-copy-line"></i></div>
+                                    <div class="text">Copy Link</div>
+                                </button>
+                            </div>
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="icon"><i class="ri-image-2-line"></i></div>
+                                    <div class="text">Download Page</div>
+                                </button>
+                            </div>
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="icon"><i class="ri-image-line"></i></div>
+                                    <div class="text">Download Image</div>
+                                </button>
+                            </div>
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="icon"><i class="ri-more-line"></i></div>
+                                    <div class="text">More</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="section" section-number="4">
+                        <div class="action-list">
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="text">Submit a photo</div>
+                                    <div class="icon"><i class="ri-image-add-line"></i></div>
+                                </button>
+                            </div>
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="text">Report</div>
+                                    <div class="icon"><i class="ri-alarm-warning-line"></i></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="section" section-number="5">
+                        <p class="version"><span class="product-name">A Calendar</span> v0.1.0 Beta</p>
+                        <p class="copyright">Code licensed <a href="https://github.com/MrWillCom/a-calendar/blob/main/LICENSE">MIT</a>, photo <a href="<% photoLicenseUrl %>"><% photoLicense %></p>
+                        <div class="links">
+                            <a href="https://github.com/MrWillCom/a-calendar">Open source</a>
+                            <a href="https://github.com/MrWillCom/a-calendar/issues/new">Feedback</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
