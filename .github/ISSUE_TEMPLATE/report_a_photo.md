@@ -1,5 +1,6 @@
 ---
 name: Report a Photo
+about: Report a existing photo.
 labels: report-photo
 ---
 
