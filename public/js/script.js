@@ -10,7 +10,6 @@ var elements = {
     "#system-share-btn": document.getElementById("system-share-btn"),
     "#submit-btn": document.getElementById("submit-btn"),
     "#report-btn": document.getElementById("report-btn"),
-    "#current-url-input": document.getElementById("current-url-input"),
 }
 
 const toggleMorePanel = () => {
@@ -30,9 +29,7 @@ const systemShare = () => {
 }
 
 elements["#copy-link-btn"].addEventListener("click", () => {
-    elements["#current-url-input"].value = window.location.href;
-    elements["#current-url-input"].select();
-    document.execCommand("copy");
+    navigator.clipboard.writeText(window.location.href)
 })
 
 elements["#system-share-btn"].addEventListener("click", systemShare)
