@@ -1,6 +1,6 @@
 <Document>
     title: "<% month %> <% date %> - A Calendar"
-    description: "A Calendar is a calendar with new photos everyday."
+    description: "View the photo of <% month %> <% date %> on A Calendar."
     head: |
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
@@ -24,38 +24,31 @@
                     <div class="section" section-number="2">
                         <p class="photo-by">Photo by <a href="<% authorUrl %>" class="author"><% author %></a></p>
                     </div>
-                    <div class="separator developing">
-                        <style>
-                            .developing {
-                                margin-bottom: 12px;
-                            }
-                        </style>
-                    </div>
-                    <!-- <div class="separator"></div>
+                    <div class="separator"></div>
                     <div class="section" section-number="3">
                         <div class="action-blocks">
                             <div class="action">
-                                <button class="action-btn">
+                                <button class="action-btn" id="copy-link-btn">
                                     <div class="icon"><i class="ri-file-copy-line"></i></div>
                                     <div class="text">Copy Link</div>
                                 </button>
                             </div>
-                            <div class="action">
-                                <button class="action-btn">
+                            <!-- <div class="action">
+                                <button class="action-btn" id="download-page-btn">
                                     <div class="icon"><i class="ri-image-2-line"></i></div>
                                     <div class="text">Download Page</div>
                                 </button>
-                            </div>
+                            </div> -->
                             <div class="action">
-                                <button class="action-btn">
+                                <a class="action-btn" href="/photos/<% dateId %>.png" download="todays-photo.png">
                                     <div class="icon"><i class="ri-image-line"></i></div>
                                     <div class="text">Download Image</div>
-                                </button>
+                                </a>
                             </div>
                             <div class="action">
-                                <button class="action-btn">
-                                    <div class="icon"><i class="ri-more-line"></i></div>
-                                    <div class="text">More</div>
+                                <button class="action-btn" id="system-share-btn">
+                                    <div class="icon"><i class="ri-share-box-line"></i></div>
+                                    <div class="text">Share</div>
                                 </button>
                             </div>
                         </div>
@@ -64,21 +57,22 @@
                     <div class="section" section-number="4">
                         <div class="action-list">
                             <div class="action">
-                                <button class="action-btn">
+                                <button class="action-btn" id="submit-btn">
                                     <div class="text">Submit a photo</div>
                                     <div class="icon"><i class="ri-image-add-line"></i></div>
                                 </button>
                             </div>
                             <div class="action">
-                                <button class="action-btn">
+                                <button class="action-btn" id="report-btn">
                                     <div class="text">Report</div>
                                     <div class="icon"><i class="ri-alarm-warning-line"></i></div>
                                 </button>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="section" section-number="5">
                         <p class="version"><span class="product-name">A Calendar</span> v0.1.0 Beta</p>
+                        <p class="developer">Developed by <a href="https://bio.link/mrwillcom" target="_blank">Mr. Will</a></p>
                         <p class="copyright">Code licensed <a href="https://github.com/MrWillCom/a-calendar/blob/main/LICENSE">MIT</a>, photo <a href="<% photoLicenseUrl %>"><% photoLicense %></p>
                         <div class="links">
                             <a href="https://github.com/MrWillCom/a-calendar">Open source</a>
@@ -88,21 +82,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            var elements = {
-                ".front": document.getElementsByClassName("front")[0],
-                ".photo-by": document.getElementsByClassName("photo-by")[0],
-                ".more-btn": document.getElementsByClassName("more-btn")[0],
-                ".more-panel": document.getElementsByClassName("more-panel")[0],
-                ".more-panel>.close-btn": document.querySelector(".more-panel>.close-btn"),
-            }
-
-            const toggleMorePanel = () => {
-                elements[".front"].classList.toggle("more-panel--open")
-            }
-
-            elements[".photo-by"].addEventListener("click", toggleMorePanel)
-            elements[".more-btn"].addEventListener("click", toggleMorePanel)
-            elements[".more-panel>.close-btn"].addEventListener("click", toggleMorePanel)
-        </script>
+        <input id="current-url-input"> 
+        <script src="/js/script.js"></script>
 </Document>
