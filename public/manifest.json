@@ -1,0 +1,20 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "A Calendar",
+    "short_name": "A Cal",
+    "display": "standalone",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#1d9bff",
+    "description": "A Calendar is a calendar with new photos everyday.",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/favicon.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any"
+      }
+    ]
+  }
