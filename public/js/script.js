@@ -20,6 +20,52 @@ elements[".photo-by"].addEventListener("click", toggleMorePanel)
 elements[".more-btn"].addEventListener("click", toggleMorePanel)
 elements[".more-panel>.close-btn"].addEventListener("click", toggleMorePanel)
 
+const savePage = () => {
+    var canvas = document.createElement('canvas')
+    canvas.width = 1200
+    canvas.height = 1200
+    var context = canvas.getContext('2d')
+
+    var img = new Image()
+    img.src = `/photos/${pageData.dateId}.png`
+    img.onload = () => {
+        var parsedWidth = 1200
+        var parsedHeight = 1200
+        if (img.width > img.height) {
+            parsedWidth = img.width / img.height * 1200
+            parsedHeight = 1200
+        } else {
+            parsedHeight = img.height / img.width * 1200
+            parsedWidth = 1200
+        }
+
+        context.drawImage(img, -(parsedWidth - 1200) / 2, -(parsedHeight - 1200) / 2, parsedWidth, parsedHeight)
+
+        context.font = '48px/48px "SF Pro"'
+        context.fillStyle = 'rgba(255, 255, 255, 0.8)'
+        context.fillText(pageData.month, 72, 940)
+
+        context.font = '200px/164px "SF Pro Text"'
+        context.fillStyle = '#ffffff'
+        context.fillText(pageData.date, 72, 1128)
+
+        context.font = '30px/30px "SF Pro"'
+        context.fillStyle = '#ffffffcc'
+        context.fillText(`Photo by ${pageData.author}`, 72, 102)
+
+        var downloadLinkElement = document.createElement("a");
+        downloadLinkElement.href = canvas.toDataURL('image/png');
+        downloadLinkElement.setAttribute("download", 'todays-page.png');
+        downloadLinkElement.click();
+    }
+}
+
+elements["#download-page-btn"].addEventListener("click", savePage)
+
+elements["#copy-link-btn"].addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href)
+})
+
 const systemShare = () => {
     navigator.share({
         title: document.title,
@@ -27,10 +73,6 @@ const systemShare = () => {
         url: window.location.href,
     })
 }
-
-elements["#copy-link-btn"].addEventListener("click", () => {
-    navigator.clipboard.writeText(window.location.href)
-})
 
 elements["#system-share-btn"].addEventListener("click", systemShare)
 

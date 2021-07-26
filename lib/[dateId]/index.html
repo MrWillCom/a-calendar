@@ -33,12 +33,12 @@
                                     <div class="text">Copy Link</div>
                                 </button>
                             </div>
-                            <!-- <div class="action">
+                            <div class="action">
                                 <button class="action-btn" id="download-page-btn">
                                     <div class="icon"><i class="bi bi-image"></i></div>
                                     <div class="text">Download Page</div>
                                 </button>
-                            </div> -->
+                            </div>
                             <div class="action">
                                 <a class="action-btn" href="/photos/<% dateId %>.png" download="todays-photo.png">
                                     <div class="icon"><i class="bi bi-file-earmark-image"></i></div>
@@ -82,5 +82,16 @@
                 </div>
             </div>
         </div>
+        <script>
+            const pageData = {
+                dateId: <% dateId %>,
+                month: "<% month %>",
+                date: <% date %>,
+                author: "<% author %>",
+                authorUrl: "<% authorUrl %>",
+                photoLicense: "<% photoLicense %>",
+                photoLicenseUrl: "<% photoLicenseUrl %>",
+            }
+        </script>
         <script src="/js/script.js"></script>
 </Document>
