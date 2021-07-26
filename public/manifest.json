@@ -6,7 +6,7 @@
     "display": "standalone",
     "start_url": "/",
     "background_color": "#ffffff",
-    "theme_color": "#1d9bff",
+    "theme_color": "#ffffff",
     "description": "A Calendar is a calendar with new photos everyday.",
     "orientation": "portrait",
     "icons": [
