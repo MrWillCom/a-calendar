@@ -23,7 +23,7 @@ elements[".more-panel>.close-btn"].addEventListener("click", toggleMorePanel)
 const savePage = () => {
     var canvas = document.createElement('canvas')
     canvas.width = 1200
-    canvas.height = 1200
+    canvas.height = 1200 + 110
     var context = canvas.getContext('2d')
 
     var img = new Image()
@@ -49,14 +49,34 @@ const savePage = () => {
         context.fillStyle = '#ffffff'
         context.fillText(pageData.date, 72, 1128)
 
-        context.font = '30px/30px "SF Pro"'
-        context.fillStyle = '#ffffffcc'
-        context.fillText(`Photo by ${pageData.author}`, 72, 102)
+        context.fillStyle = '#ffffff'
+        context.fillRect(0, 1200, 1200, 110)
 
-        var downloadLinkElement = document.createElement("a");
-        downloadLinkElement.href = canvas.toDataURL('image/png');
-        downloadLinkElement.setAttribute("download", 'todays-page.png');
-        downloadLinkElement.click();
+        var logo = new Image()
+        logo.src = '/favicon.png'
+        logo.onload = () => {
+            context.drawImage(logo, 0, 1200, 110, 110)
+
+            context.font = '40px/40px "SF Pro Text"'
+            context.fillStyle = '#000000'
+            context.fillText("A Calendar", 125, 1250)
+
+            context.font = '30px/30px "SF Pro"'
+            context.fillStyle = '#000000cc'
+            context.fillText(`Photo by ${pageData.author}`, 125, 1290)
+
+            var qrcode = document.createElement('canvas')
+            QRCode.toCanvas(qrcode, window.location.href, (err) => {
+                if (err) console.error(err)
+
+                context.drawImage(qrcode, 1090, 1200, 110, 110)
+
+                var downloadLinkElement = document.createElement("a");
+                downloadLinkElement.href = canvas.toDataURL('image/png');
+                downloadLinkElement.setAttribute("download", 'todays-page.png');
+                downloadLinkElement.click();
+            })
+        }
     }
 }
 
