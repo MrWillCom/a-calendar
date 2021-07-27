@@ -16,6 +16,10 @@ License of your photo:
 
 Link to the license:
 
+Your name:
+
+Your home page:
+
 Source URL of your photo (optional):
 
 Description (optional):
