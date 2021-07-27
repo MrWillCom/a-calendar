@@ -4,6 +4,7 @@
     "name": "A Calendar",
     "short_name": "A Cal",
     "display": "standalone",
+    "display_override": [ "window-controls-overlay" ],
     "start_url": "/",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
