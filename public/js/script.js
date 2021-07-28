@@ -1,5 +1,7 @@
 var elements = {
     ".front": document.getElementsByClassName("front")[0],
+    ".previous-btn": document.querySelector(".front>.previous-btn"),
+    ".next-btn": document.querySelector(".front>.next-btn"),
     ".photo-by": document.getElementsByClassName("photo-by")[0],
     ".more-btn": document.getElementsByClassName("more-btn")[0],
     ".more-panel": document.getElementsByClassName("more-panel")[0],
@@ -10,6 +12,55 @@ var elements = {
     "#system-share-btn": document.getElementById("system-share-btn"),
     "#submit-btn": document.getElementById("submit-btn"),
     "#report-btn": document.getElementById("report-btn"),
+}
+
+const getYesterday = (today) => {
+    today.setDate(today.getDate() - 1)
+    return today
+}
+
+const getTomorrow = (today) => {
+    today.setDate(today.getDate() + 1)
+    return today
+}
+
+const getDateFromDateId = (dateId) => {
+    dateId = dateId.toString()
+    var date = new Date()
+    date.setFullYear(parseInt(dateId.slice(0, 4), 10))
+    date.setMonth(parseInt(dateId.slice(4, 6), 10) - 1)
+    date.setDate(parseInt(dateId.slice(6, 8), 10))
+    return date
+}
+
+const getDateIdFromDate = (date) => {
+    return date.getFullYear().toString() +
+        (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)).toString() +
+        (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()).toString()
+}
+
+elements[".previous-btn"].addEventListener("click", () => {
+    window.location.href = `/${getDateIdFromDate(
+        getYesterday(
+            getDateFromDateId(new URL(window.location.href).pathname.split("/")[1])
+        )
+    )}`
+})
+
+elements[".next-btn"].addEventListener("click", () => {
+    window.location.href = `/${getDateIdFromDate(
+        getTomorrow(
+            getDateFromDateId(new URL(window.location.href).pathname.split("/")[1])
+        )
+    )}`
+})
+
+if (pageData.dateId == pageData.earliest) {
+    elements[".previous-btn"].parentNode.removeChild(elements[".previous-btn"])
+}
+
+if (pageData.dateId == pageData.latest) {
+    elements[".next-btn"].parentNode.removeChild(elements[".next-btn"])
 }
 
 const toggleMorePanel = () => {

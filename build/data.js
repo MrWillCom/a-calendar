@@ -26,7 +26,7 @@ var data = [{
 
 for (const dateId of dateIdList) {
     data.push({
-        data: { dateId },
+        data: { dateId, earliest: dateIdList[0], latest: dateIdList[dateIdList.length - 1] },
         from: "/[dateId]/",
         to: `/${dateId}/`
     })

@@ -51,6 +51,7 @@ body {
     color: var(--text-color);
     font-family: 'SF Pro Rounded';
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .btn.btn-primary {
@@ -82,12 +83,25 @@ body {
     z-index: -1;
 }
 
+.front>.previous-btn, .front>.next-btn {
+    position: absolute;
+    top: calc(50vh - 16px);
+}
+
+.front>.previous-btn {
+    left: var(--main-content-margin);
+}
+.front>.next-btn {
+    right: var(--main-content-margin);
+}
+
 .front>.bottom-left {
     position: absolute;
     left: var(--main-content-margin);
     bottom: var(--main-content-margin);
     font-family: 'SF Pro';
     color: var(--hero-text-color);
+    pointer-events: none;
 }
 
 .front>.bottom-left>.month {
@@ -136,6 +150,17 @@ body {
     color: var(--text-color);
     padding: 0;
     text-align: center;
+    transition: background-color .2s, transform .15s;
+}
+
+.btn.acrylic-round-btn:hover, .btn.acrylic-round-btn:focus {
+    background-color: var(--bg-4);
+    transform: scale(1.1);
+}
+
+.btn.acrylic-round-btn:active {
+    background-color: var(--bg-8);
+    transform: scale(0.9);
 }
 
 .front>.more-btn {
@@ -144,15 +169,6 @@ body {
     bottom: var(--main-content-margin);
     opacity: 0;
     pointer-events: none;
-    transition: background-color 0.2s, opacity 0.35s;
-}
-
-.front>.more-btn:hover {
-    background-color: var(--bg-4);
-}
-
-.front>.more-btn:active {
-    background-color: var(--bg-8);
 }
 
 .front>.more-btn>i {
@@ -211,7 +227,8 @@ body {
     right: 8px;
     font-size: 22px;
     line-height: 32px;
-    transition: background-color 0.2s;
+    backdrop-filter: none;
+    background-color: transparent;
 }
 
 .front>.more-panel>.separator {

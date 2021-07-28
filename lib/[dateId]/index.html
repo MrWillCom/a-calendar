@@ -2,12 +2,15 @@
     title: "<% month %> <% date %> - A Calendar"
     description: "View the photo of <% month %> <% date %> on A Calendar."
     head: |
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/css/styles.css">
     body: |
         <div class="main">
             <img src="/photos/<% dateId %>.png" alt="Background photo by <% author %>" class="image">
             <div class="front">
+                <button class="previous-btn btn acrylic-round-btn"><i class="bi bi-arrow-left"></i></button>
+                <button class="next-btn btn acrylic-round-btn"><i class="bi bi-arrow-right"></i></button>
                 <div class="bottom-left">
                     <p class="month"><% month %></p>
                     <p class="date"><% date %></p>
@@ -85,6 +88,8 @@
         <script>
             const pageData = {
                 dateId: <% dateId %>,
+                earliest: <% earliest %>,
+                latest: <% latest %>,
                 month: "<% month %>",
                 date: <% date %>,
                 author: "<% author %>",
