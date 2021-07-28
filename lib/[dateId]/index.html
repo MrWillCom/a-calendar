@@ -27,7 +27,6 @@
                     <div class="section" section-number="2">
                         <p class="photo-by">Photo by <a href="<% authorUrl %>" class="author"><% author %></a></p>
                     </div>
-                    <div class="separator"></div>
                     <div class="section" section-number="3">
                         <div class="action-blocks">
                             <div class="action">
@@ -56,31 +55,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="separator"></div>
                     <div class="section" section-number="4">
+                        <p class="action-list-title">Photo</p>
                         <div class="action-list">
                             <div class="action">
-                                <button class="action-btn" id="submit-btn">
-                                    <div class="text">Submit a photo</div>
+                                <a class="action-btn" href="<% photoLicenseUrl %>" target="_blank">
+                                    <div class="text">License</div>
+                                    <div class="icon"><% photoLicense %></div>
+                                </a>
+                            </div>
+                            <div class="action">
+                                <a class="action-btn" href="https://github.com/MrWillCom/a-calendar/issues/new?assignees=&labels=report-photo&template=report_a_photo.md" target="_blank">
+                                    <div class="text">Report</div>
+                                    <div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
+                                </a>
+                            </div>
+                            <div class="action">
+                                <a class="action-btn" href="https://github.com/MrWillCom/a-calendar/issues/new?assignees=&labels=new-photo&template=submit_a_photo.md" target="_blank">
+                                    <div class="text">Submit</div>
                                     <div class="icon"><i class="bi bi-plus-lg"></i></div>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="action-list-title">Code</p>
+                        <div class="action-list">
+                            <div class="action">
+                                <button class="action-btn">
+                                    <div class="text">Version</div>
+                                    <div class="icon">v0.1.0 Beta</div>
                                 </button>
                             </div>
                             <div class="action">
-                                <button class="action-btn" id="report-btn">
-                                    <div class="text">Report</div>
-                                    <div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
-                                </button>
+                                <a class="action-btn" href="https://github.com/MrWillCom/a-calendar/blob/main/LICENSE" target="_blank">
+                                    <div class="text">License</div>
+                                    <div class="icon">MIT</div>
+                                </a>
+                            </div>
+                            <div class="action" target="_blank">
+                                <a class="action-btn" href="https://github.com/MrWillCom" target="_blank">
+                                    <div class="text">Developer</div>
+                                    <div class="icon">Mr. Will</div>
+                                </a>
+                            </div>
+                            <div class="action" target="_blank">
+                                <a class="action-btn" href="https://github.com/MrWillCom/a-calendar" target="_blank">
+                                    <div class="text">Source Code</div>
+                                    <div class="icon"><i class="bi bi-github"></i></div>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="section" section-number="5">
-                        <p class="version"><span class="product-name">A Calendar</span> v0.1.0 Beta</p>
+                        <img src="/favicon.png" alt="Logo" class="icon">
+                        <div class="text">A Calendar</div>
+                        <!-- <p class="version"><span class="product-name">A Calendar</span> v0.1.0 Beta</p>
                         <p class="developer">Developed by <a href="https://bio.link/mrwillcom" target="_blank">Mr. Will</a></p>
                         <p class="copyright">Code licensed <a href="https://github.com/MrWillCom/a-calendar/blob/main/LICENSE">MIT</a>, photo <a href="<% photoLicenseUrl %>"><% photoLicense %></p>
                         <div class="links">
                             <a href="https://github.com/MrWillCom/a-calendar">Open source</a>
                             <a href="https://github.com/MrWillCom/a-calendar/issues/new">Feedback</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

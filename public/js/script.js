@@ -149,7 +149,3 @@ const systemShare = () => {
 }
 
 elements["#system-share-btn"].addEventListener("click", systemShare)
-
-elements["#submit-btn"].addEventListener("click", () => { window.open("https://github.com/MrWillCom/a-calendar/issues/new?assignees=&labels=new-photo&template=submit_a_photo.md") })
-
-elements["#report-btn"].addEventListener("click", () => { window.open("https://github.com/MrWillCom/a-calendar/issues/new?assignees=&labels=report-photo&template=report_a_photo.md") })

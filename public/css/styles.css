@@ -54,6 +54,10 @@ body {
     min-height: 100vh;
 }
 
+a {
+    color: var(--bg-r-b);
+}
+
 .btn.btn-primary {
     outline: none;
     border: none;
@@ -91,6 +95,7 @@ body {
 .front>.previous-btn {
     left: var(--main-content-margin);
 }
+
 .front>.next-btn {
     right: var(--main-content-margin);
 }
@@ -340,7 +345,13 @@ body {
     background-color: var(--bg-r-2);
     color: var(--text-color);
     font-size: 16px;
+    text-decoration: none;
+    cursor: default;
     transition: background-color 0.2s;
+}
+
+.front>.more-panel .action-list>.action>a.action-btn {
+    width: calc(100% - 16px);
 }
 
 .front>.more-panel .action-list>.action>.action-btn:hover, .front>.more-panel .action-list>.action>.action-btn:focus {
@@ -361,6 +372,14 @@ body {
     border-bottom-right-radius: 6px;
 }
 
+.front>.more-panel .action-list-title {
+    user-select: none;
+    margin: -6px 20px;
+    margin-top: 0;
+    color: var(--bg-r-b);
+    font-size: 14px;
+}
+
 .front>.more-panel>[section-number="5"] {
     text-align: center;
     user-select: none;
@@ -368,14 +387,20 @@ body {
     font-size: 14px;
 }
 
-.front>.more-panel>[section-number="5"] a {
-    color: var(--bg-r-b);
+.front>.more-panel>[section-number="5"]>.icon {
+    width: 32px;
+    height: 32px;
 }
 
-.front>.more-panel>[section-number="5"]>* {
-    margin: 2px 0;
+.front>.more-panel>[section-number="5"]>.text {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.9);
+    transition-property: opacity transform;
+    transition-duration: 0.5s;
 }
 
-.front>.more-panel>[section-number="5"]>.version>.product-name {
-    color: var(--text-color);
+.front>.more-panel>[section-number="5"]:hover>.text {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.3s;
 }
