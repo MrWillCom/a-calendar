@@ -20,6 +20,9 @@ This project is based on a DIY framework, so currently it doesn't provide a deve
 # Build the project
 $ yarn build
 
+# Install `serve` if you haven't
+$ yarn global add serve
+
 # Start the server
 $ serve ./output/
 ```
