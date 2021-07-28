@@ -113,19 +113,22 @@ const savePage = () => {
             context.fillText("A Calendar", 125, 1250)
 
             context.font = '30px/30px "SF Pro"'
-            context.fillStyle = '#000000cc'
+            context.fillStyle = '#0008'
             context.fillText(`Photo by ${pageData.author}`, 125, 1290)
 
-            var qrcode = document.createElement('canvas')
-            QRCode.toCanvas(qrcode, window.location.href, (err) => {
-                if (err) console.error(err)
+            QRCode.toDataURL(window.location.href, { version: 3 }, (err, url) => {
+                if (err) { console.error(err) }
 
-                context.drawImage(qrcode, 1090, 1200, 110, 110)
+                var qrcode = new Image()
+                qrcode.src = url
+                qrcode.onload = () => {
+                    context.drawImage(qrcode, 1090, 1200, 110, 110)
 
-                var downloadLinkElement = document.createElement("a");
-                downloadLinkElement.href = canvas.toDataURL('image/png');
-                downloadLinkElement.setAttribute("download", 'todays-page.png');
-                downloadLinkElement.click();
+                    var downloadLinkElement = document.createElement("a");
+                    downloadLinkElement.href = canvas.toDataURL('image/png');
+                    downloadLinkElement.setAttribute("download", 'todays-page.png');
+                    downloadLinkElement.click();
+                }
             })
         }
     }
