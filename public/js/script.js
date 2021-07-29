@@ -1,4 +1,5 @@
 var elements = {
+    ".main": document.getElementsByClassName("main")[0],
     ".front": document.getElementsByClassName("front")[0],
     ".previous-btn": document.querySelector(".front>.previous-btn"),
     ".next-btn": document.querySelector(".front>.next-btn"),
@@ -64,7 +65,7 @@ if (pageData.dateId == pageData.latest) {
 }
 
 const toggleMorePanel = () => {
-    elements[".front"].classList.toggle("more-panel--open")
+    elements[".main"].classList.toggle("more-panel--open")
 }
 
 elements[".photo-by"].addEventListener("click", toggleMorePanel)

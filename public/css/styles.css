@@ -77,6 +77,42 @@ a {
     background-color: var(--accent-color-active);
 }
 
+.btn.acrylic-round-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--bg-8);
+    backdrop-filter: var(--acrylic);
+    -webkit-backdrop-filter: var(--acrylic);
+    color: var(--text-color);
+    padding: 0;
+    text-align: center;
+    transition: background-color .2s, transform .15s;
+    transition-timing-function: var(--timing-function);
+}
+
+.btn.acrylic-round-btn:hover, .btn.acrylic-round-btn:focus {
+    background-color: var(--bg-4);
+    transform: scale(1.1);
+}
+
+.btn.acrylic-round-btn:active {
+    background-color: var(--bg-8);
+    transform: scale(0.9);
+}
+
+.main>.image-bg {
+    position: absolute;
+    left: -32px;
+    top: -32px;
+    width: calc(100vw + 64px);
+    height: calc(100vh + 64px);
+    object-fit: cover;
+    z-index: -200;
+    filter: blur(18px) brightness(0.4);
+}
+
 .main>.image {
     position: absolute;
     left: 0;
@@ -84,12 +120,29 @@ a {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    z-index: -1;
+    z-index: -100;
+    transition: all 0.5s var(--timing-function);
+}
+
+@media screen and (max-width: 600px) {
+    .main.more-panel--open>.image {
+        top: calc(100vw*0.05/2);
+        transform: scale(0.95) translate(0, -2.5vh);
+        border-radius: 8px;
+    }
 }
 
 .front>.previous-btn, .front>.next-btn {
     position: absolute;
     top: calc(50vh - 16px);
+    transition: opacity 0.3s var(--timing-function);
+}
+
+@media screen and (max-width: 600px) {
+    .main.more-panel--open>.front>.previous-btn, .main.more-panel--open>.front>.next-btn {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .front>.previous-btn {
@@ -144,30 +197,6 @@ a {
     color: var(--hero-text-color);
 }
 
-.btn.acrylic-round-btn {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 50%;
-    background-color: var(--bg-8);
-    backdrop-filter: var(--acrylic);
-    -webkit-backdrop-filter: var(--acrylic);
-    color: var(--text-color);
-    padding: 0;
-    text-align: center;
-    transition: background-color .2s, transform .15s;
-}
-
-.btn.acrylic-round-btn:hover, .btn.acrylic-round-btn:focus {
-    background-color: var(--bg-4);
-    transform: scale(1.1);
-}
-
-.btn.acrylic-round-btn:active {
-    background-color: var(--bg-8);
-    transform: scale(0.9);
-}
-
 .front>.more-btn {
     position: absolute;
     right: var(--main-content-margin);
@@ -207,7 +236,7 @@ a {
     transition-duration: 0.5s;
 }
 
-.front.more-panel--open>.more-panel {
+.more-panel--open .more-panel {
     right: 0;
 }
 
@@ -216,13 +245,14 @@ a {
         top: 100vh;
         left: 0;
         right: 0;
-        height: 60vh;
+        height: 50vh;
+        overflow-y: scroll;
         width: 100vw;
         border-radius: 8px 8px 0 0;
         transition-property: top, box-shadow;
     }
-    .front.more-panel--open>.more-panel {
-        top: 40vh;
+    .more-panel--open .more-panel {
+        top: 50vh;
     }
 }
 
