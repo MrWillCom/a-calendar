@@ -135,7 +135,8 @@ a {
 .front>.previous-btn, .front>.next-btn {
     position: absolute;
     top: calc(50vh - 16px);
-    transition: opacity 0.3s var(--timing-function);
+    transition: 0.3s var(--timing-function);
+    transition-property: opacity, transform;
 }
 
 @media screen and (max-width: 600px) {
