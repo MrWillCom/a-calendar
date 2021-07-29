@@ -26,6 +26,11 @@
     --acrylic: blur(32px) saturate(1.2);
     /* timing-function */
     --timing-function: cubic-bezier(0.3, 0, 0, 1);
+    /* fonts */
+    --pro: -apple-system, 'SF Pro', 'Segoe UI', 'Roboto', 'Source Han Sans', sans-serif;
+    --pro-text: -apple-system, 'SF Pro Text', 'Segoe UI', 'Roboto', 'Source Han Sans', sans-serif;
+    --pro-rounded: -apple-system, 'SF Pro Rounded', 'Segoe UI', 'Roboto', 'Source Han Sans', sans-serif;
+    --pro-text-semibold: -apple-system, 'SF Pro Text Semibold', 'Segoe UI', 'Roboto', 'Source Han Sans', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,7 +54,7 @@
 
 body {
     color: var(--text-color);
-    font-family: 'SF Pro Rounded';
+    font-family: var(--pro-rounded);
     overflow: hidden;
     min-height: 100vh;
 }
@@ -158,7 +163,7 @@ a {
     position: absolute;
     left: var(--main-content-margin);
     bottom: var(--main-content-margin);
-    font-family: 'SF Pro';
+    font-family: var(--pro);
     color: var(--hero-text-color);
     pointer-events: none;
 }
@@ -183,7 +188,7 @@ a {
     bottom: var(--main-content-margin);
     font-size: 20px;
     line-height: 20px;
-    font-family: 'SF Pro Text';
+    font-family: var(--pro-text);
     color: var(--sub-hero-text-color);
 }
 
@@ -194,7 +199,7 @@ a {
 }
 
 .front>.bottom-right>.photo-by>.author {
-    font-family: 'SF Pro Text Semibold';
+    font-family: var(--pro-text-semibold);
     color: var(--hero-text-color);
 }
 
@@ -299,13 +304,13 @@ a {
 }
 
 .front>.more-panel>[section-number="2"]>.photo-by {
-    font-family: 'SF Pro Text';
+    font-family: var(--pro-text);
 }
 
 .front>.more-panel>[section-number="2"]>.photo-by>.author {
     color: var(--text-color);
     text-decoration: none;
-    font-family: 'SF Pro Text Semibold';
+    font-family: var(--pro-text-semibold);
 }
 
 .front>.more-panel .action-blocks {
