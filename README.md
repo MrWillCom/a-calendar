@@ -4,7 +4,7 @@
 
 <p align="center">A Calendar is a calendar with new photos everyday.</p>
 
-<p align="center"><a href="https://a-calendar.vercel.app/">🌏 Visit</a> | <a href="#development">🧑‍💻 Develop</a></p>
+<p align="center"><a href="https://a-calendar.vercel.app/">🌏 Visit</a> | <a href="#development">🧑‍💻 Develop</a> | <a href="https://open.vscode.dev/MrWillCom/a-calendar">⌨️ Open in VS Code</a></p>
 
 ## Development
 
