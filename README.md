@@ -28,3 +28,25 @@ $ serve ./output/
 ```
 
 You can run `serve` in another terminal, so that you can build without restarting the server.
+
+## Deployment (Vercel)
+
+To deploy to Vercel, click the button below:
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/MrWillCom/a-calendar)
+
+Then go to Settings > General > Build & Development Settings, set:
+
+| Item             | Value          |
+| ---------------- | -------------- |
+| BUILD COMMAND    | `yarn build`   |
+| OUTPUT DIRECTORY | `output`       |
+| INSTALL COMMAND  | `yarn install` |
+
+Then click "Save".
+
+Your deployment is ready now.
+
+<br>
+
+<p align="center"><a href="https://vercel.com/?utm_source=mrwillcom&utm_campaign=oss"><img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg"></a></p>
