@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - A Calendar</title>
+    <meta name="description" content="Page not found - A Calendar.">
+    <link rel="icon" href="/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/logo-apple-touch.png">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+
+<body>
+    <div class="center">
+        <h2 class="code">404</h2>
+        <h4 class="desc">Page not found.</h4>
+        <p class="desc-2">The page you requested is not found.</p>
+        <div class="actions">
+            <a href="/">
+                <ion-button color="primary">Go Home</ion-button>
+            </a>
+            <a href="https://github.com/MrWillCom/a-calendar/issues/new">
+                <ion-button color="secondary">Feedback</ion-button>
+            </a>
+        </div>
+        <img src="/favicon.png" alt="A Calendar's logo" class="logo">
+    </div>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, 'SF Pro Text', 'Segoe UI', 'Roboto', 'Source Han Sans', sans-serif;
+        }
+
+        .center {
+            width: 500px;
+            max-width: calc(100vw - 32px);
+        }
+
+
+        .code {
+            font-size: 64px;
+            margin: 0;
+        }
+
+        .desc {
+            font-size: 32px;
+            margin: 8px 0;
+        }
+
+        .desc-2 {
+            margin: 0;
+            margin-top: 64px;
+        }
+
+        .actions {
+            margin: 64px 0;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</body>
+
+</html>
