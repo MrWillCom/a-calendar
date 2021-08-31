@@ -4,18 +4,6 @@
     head: ""
     body: |
         <script>
-            const parseMonthAndDate = (number) => {
-                if (number < 10) {
-                    return `0${number}`
-                } else {
-                    return number.toString()
-                }
-            }
-
-            const fullDate = new Date()
-            var year = fullDate.getFullYear()
-            var month = fullDate.getMonth() + 1
-            var date = fullDate.getDate()
-            window.location.href = `/${year}${parseMonthAndDate(month)}${parseMonthAndDate(date)}`
+            window.location.href = `/20210807`
         </script>
 </Document>
